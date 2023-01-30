@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <QuickView id="quickView" pages="{
+			path: 'EmployeeModel>/',
+			templateShareable: true
+			}" navigate=".onNavigate">
+        <QuickViewPage header="{i18n>headerDetails}" title="{EmployeeModel>FirstName} {EmployeeModel>LastName}" description="{EmployeeModel>Title}">
+            <avatar>
+                <Avatar src="{icon}" displayShape="{displayShape}" />
+            </avatar>
+            <QuickViewGroup heading="{i18n>addressDetails}" >
+                <QuickViewGroupElement label="{i18n>address}" value="{EmployeeModel>Address}" />
+				<QuickViewGroupElement label="{i18n>city}" value="{EmployeeModel>City}" />
+				<QuickViewGroupElement label="{i18n>postCode}" value="{EmployeeModel>PostalCode}" />
+				<QuickViewGroupElement label="{i18n>Phone}" value="{EmployeeModel>HomePhone}" />
+            </QuickViewGroup>
+        </QuickViewPage>
+    </QuickView>
+</core:FragmentDefinition>
