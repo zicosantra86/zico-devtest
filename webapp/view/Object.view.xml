@@ -1,0 +1,52 @@
+<mvc:View height="100%" controllerName="au.com.bournedigital.developertest.controller.Object" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+    <Page title="{i18n>orderDetails}  " showNavButton="true" navButtonPress="gotoWorkList">
+        <content>
+            <ObjectHeader id="oh1" responsive="true" fullScreenOptimized="true" title="{Customer/CompanyName}  ({i18n>orderId} : {OrderID})" titleActive="false" titlePress="handleTitlePress" numberState="Success" backgroundDesign="Translucent" class="sapUiResponsivePadding--header">
+                
+                <ObjectAttribute title="{i18n>ContactName}" text="{Customer/ContactName}" />
+                <ObjectAttribute title="{i18n>ContactTitle}" text="{Customer/ContactTitle}" />
+                <ObjectAttribute title="{i18n>Phone}" text="{Customer/Phone}" />
+                <ObjectAttribute title="{i18n>address}" text="{Customer/Address}" />
+                <ObjectAttribute title="{i18n>postalCode}" text="{Customer/PostalCode}" />
+                <ObjectAttribute title="{i18n>Country}" text="{Customer/Country}" />
+                <headerContainer />
+            </ObjectHeader>
+            <IconTabBar id="itb1" selectedKey="key3" upperCase="true" class="sapUiResponsivePadding--header sapUiResponsivePadding--content">
+                <items>
+                    <IconTabFilter text="{i18n>orderdetails}" key="key1">
+                        <l:VerticalLayout class="sapUiContentPadding" width="100%">
+                            <l:content>
+                                <Table id="idProductsTable" inset="false" updateFinished="onUpdateFinished" items="{path: '/Order_Details'}">
+                                    <columns>
+                                        <Column>
+                                            <Text text="{i18n>productId}" />
+                                        </Column>
+                                        <Column minScreenWidth="Tablet" demandPopin="true">
+                                            <Text text="{i18n>uintPrice}" />
+                                        </Column>
+                                        <Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
+                                            <Text text="{i18n>quantity}" />
+                                        </Column>
+                                        <Column minScreenWidth="Desktop" demandPopin="true" hAlign="Center">
+                                            <Text text="{i18n>Discount}" />
+                                        </Column>
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem vAlign="Middle">
+                                            <cells>
+                                                <ObjectIdentifier text="{ProductID}" />
+                                                <Text text="{UnitPrice}" />
+                                                <Text text="{Quantity}" />
+                                                <ObjectNumber number="{Discount}" state="Warning" />
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                            </l:content>
+                        </l:VerticalLayout>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+    </Page>
+</mvc:View>
